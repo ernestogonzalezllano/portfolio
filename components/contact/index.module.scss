@@ -1,0 +1,18 @@
+.element_contact{
+    background: #72c0bc;
+    margin-bottom: 4rem;
+    filter: drop-shadow(2px 4px 6px black);
+    div{
+      display: flex;
+      margin-bottom: 1rem;
+      justify-content: center;
+      img{
+        height: 3rem;
+        margin: 0 1rem;
+        filter: drop-shadow(2px 4px 6px black);
+        &:hover{
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
