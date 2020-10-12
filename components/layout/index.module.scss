@@ -1,0 +1,109 @@
+@import "../../styles/bp.scss";
+
+$about-color: #8a8a8a91;
+$tech-color: #8a8a8a91;
+$contact-color: #8a8a8a91;
+$project-color: #8a8a8a91;
+.header{
+  display: flex;
+  position: relative;
+  background: #efeeec;
+  .header__imgContainer{
+    img{
+      border-radius: 50%;
+      width: 300px;
+      position: relative;
+      z-index: 100;
+    }
+  }
+  .header__textContainer{
+    flex-shrink: 0;
+    h1{
+      font-size: 4rem;
+    font-weight: bolder;
+    margin: 1rem 2rem;
+    line-height: 4rem;
+    width: 600px;
+    }
+    h2{
+      font-size: 2rem;
+      position: absolute;
+      right: 0;
+      width: 85vw;
+      text-align: end;
+      background: #73c0bc;
+      padding: .5rem 2rem;;
+      z-index: 0;
+      bottom: 2rem;
+    }
+  }
+  @include respond-to("default") {
+    display: grid;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+    justify-items: center;
+    .header__textContainer{ 
+      display:flex;
+      flex-direction:column;
+
+      h1{
+      width: auto;
+      line-height: 1;
+      font-size:2rem;
+      }
+      h2{
+        position: relative;
+        width: auto;
+        text-align: end;
+        background: #73c0bc;
+        padding: .5rem;
+        font-size:1.25rem;
+      }
+    }
+  }
+}
+
+
+.element{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  section{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    div{
+      position: relative;
+      width: 100vw;
+      h2{
+        font-size: 2rem;
+        padding: 0 3rem;
+        position: relative;
+        width: 10%;
+        border-bottom: 2px solid;
+        animation-name: border;
+          animation-duration: 9s;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+          animation-timing-function: linear;
+        
+        @keyframes border {
+          0% {
+            width: 10%;
+          }
+          50%{
+            width: 15%;
+          }
+          100% {
+            width: 10%;
+          }
+        }
+        @include respond-to("default") {
+          font-size:1.5rem;
+        }
+      }
+    }
+  }   
+}
+

@@ -1,0 +1,186 @@
+@import "../../styles/bp.scss";
+
+.element_tech{
+    background: #525252;
+    padding-bottom: 2rem;  
+    margin-bottom: 2rem;
+    filter: drop-shadow(2px 4px 6px black);
+    .container_tech{
+      width: 80%;
+      display: grid;
+      margin: auto;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem 10vw;
+      .tag_tech{
+        display: grid;
+        grid-gap: 1rem;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        img{
+          height: 3rem;
+          filter:drop-shadow(2px 4px 6px black)
+        }
+        div{
+          width: 100%;
+          display: flex;
+          margin: 0;
+          padding: 0;
+          animation: none;
+          background: #808080;
+          border-radius: 9999px;
+          label{
+            position: absolute;
+            z-index: 400;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0); 
+          }
+          .label_active{
+            
+            animation: labels 2s linear 1 normal forwards;
+            @keyframes labels {
+              from {
+                color: rgba(255, 255, 255, 0); 
+              }
+              to{
+                color: rgba(255, 255, 255, 1);
+              }
+            }
+          }
+          div{
+            border-radius: 9999px;
+            background-color: hsl(177, 38%, 60%);
+            height: 1rem;
+            margin:0;
+            width: 0;              
+          }
+          &.javascript{
+            animation: leveljscript 1s linear 1 normal forwards;
+            @keyframes leveljscript {
+              from {
+                width:0%;
+              }
+              to{
+                width:95%;
+              }
+            }
+          }
+          &.html{
+            animation: levelhtml 1s linear 1 normal forwards;
+            @keyframes levelhtml {
+              from {
+                width:0%;
+              }
+              to{
+                width:70%;
+              }
+            }
+          }
+          &.css{
+            animation: levelcss 4s linear 1 normal forwards;
+            @keyframes levelcss {
+              from {
+                width:0%;
+              }
+              to{
+                width:85%;
+              }
+            }
+          }
+          &.react{
+            animation: levelreact 1s linear 1 normal forwards;
+            @keyframes levelreact {
+              from {
+                width:0%;
+              }
+              to{
+                width:85%;
+              }
+            }
+          }
+          &.redux{
+            animation: levelredux 2s linear 1 normal forwards;
+            @keyframes levelredux {
+              from {
+                width:0%;
+              }
+              to{
+                width:90%;
+              }
+            }
+          }
+          &.sass{
+            animation: levelsass 1s linear 1 normal forwards;
+            @keyframes levelsass {
+              from {
+                width:0%;
+              }
+              to{
+                width:90%;
+              }
+            }
+          }
+          &.mui{
+            animation: levelmui 3s linear 1 normal forwards;
+            @keyframes levelmui {
+              from {
+                width:0%;
+              }
+              to{
+                width:65%;
+              }
+            }
+          }
+          &.postgres{
+            animation: levelpostgres 2s linear 1 normal forwards;
+            @keyframes levelpostgres {
+              from {
+                width:0%;
+              }
+              to{
+                width:70%;
+              }
+            }
+          }
+          &.sequelize{
+            animation: levelsequelize 1s linear 1 normal forwards;
+            @keyframes levelsequelize {
+              from {
+                width:0%;
+              }
+              to{
+                width:75%;
+              }
+            }
+          }
+          &.node{
+            animation: levelnode 1s linear 1 normal forwards;
+            @keyframes levelnode {
+              from {
+                width:0%;
+              }
+              to{
+                width:65%;
+              }
+            }
+          }
+          &.express{
+            animation: levelexpress 2s linear 1 normal forwards;
+            @keyframes levelexpress {
+              from {
+                width:0%;
+              }
+              to{
+                width:80%;
+              }
+            }
+          }
+
+        } 
+      }
+    }  
+  }
