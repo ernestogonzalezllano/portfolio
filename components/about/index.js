@@ -29,4 +29,5 @@ export default function Layout({ children, home }) {
                 <strong className={impChar === 3? styles.impChar:null}> transformar</strong> programas,empresas, realidades y vidas
                 </p>
             </div>)
+            
 }
