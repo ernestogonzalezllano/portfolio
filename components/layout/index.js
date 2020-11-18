@@ -16,7 +16,6 @@ const scrollType = {
 };
 
 export default function Layout({ children, home }) {
-
   return (
     <>
       <Head>
@@ -32,43 +31,44 @@ export default function Layout({ children, home }) {
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <div className={styles.header__imgContainer}>
-         <img src="./images/profile.png"></img>
-        </div>
+        <figure className={styles.header__imgContainer}>
+         <img src="./images/profile.png" alt="foto perfil ernesto gonzalez llano"></img>
+        </figure>
         <div className={styles.header__textContainer}>
-        <h1>
-          Ernesto Gonzalez LLano
-        </h1>
-        <h2>
+          <h1>
+            Ernesto Gonzalez LLano
+          </h1>
+          <h2>
             FULL STACK WEB DEVELOPER
           </h2>
         </div>
-        <div className={styles.header__paint}>
-        </div>
       </header>
-      <Element className={styles.element} name="about">
-        <section>
-          <About></About>
-        </section>
-      </Element>
-      <Element className={styles.element} name="tech">
-        <section >
-          <Tech></Tech>
-        </section>  
-      </Element>
-      <Element className={styles.element} name="project">
-      <section >
-          <Project></Project>
-        </section>
-      </Element>
-      <Element className={styles.element} name="contact">
-      <section >
-          <Contact></Contact>
-        </section>
-      </Element>
+      <main>
+        <Element className={styles.element} name="about">
+          <section>
+            <About/>
+          </section>
+        </Element>
+        <Element className={styles.element} name="tech">
+          <section >
+            <Tech/>
+          </section>  
+        </Element>
+        <Element className={styles.element} name="project">
+          <section >
+            <Project/>
+          </section>
+        </Element>
+      </main>
+      <footer>
+        <Element className={styles.element} name="contact">
+          <section >
+            <Contact/>
+          </section>
+        </Element>
+      </footer>
       </>
   )
 }

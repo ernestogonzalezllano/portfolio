@@ -43,7 +43,7 @@ export default function Tech() {
                 {name:"node",level:"65%"},
                 {name:"express",level:"80%"},].map((e,i)=>(<div key={i} className={styles.tag_tech}>
                     <img src={`./images/${e.name}.png`}/>
-                    <div><label className={focus?styles.label_active:null}>{e.level}</label><div className={focus?styles[e.name]:null}></div></div>
+                    <div><label className={focus?styles.label_active:styles.label_inactive}>{e.level}</label><div className={focus?styles[e.name]:styles.level_inactive}></div></div>
                 </div>))}
                 </div>        
             </div>
