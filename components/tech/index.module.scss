@@ -51,12 +51,35 @@
               }
             }
           }
+          .label_inactive{
+            animation: labelsi 2s linear 1 normal forwards;
+            @keyframes labelsi {
+              from {
+                color: rgba(255, 255, 255, 1);
+                 
+              }
+              to{
+                color: rgba(255, 255, 255, 0);
+              }
+            }
+          }
           div{
             border-radius: 9999px;
             background-color: hsl(177, 38%, 60%);
             height: 1rem;
             margin:0;
             width: 0;              
+          }
+          .level_inactive{
+            animation: leveli 2s linear 1 normal forwards;
+            @keyframes leveli {
+              from {
+                width: 100%;
+              }
+              to{
+                width:0%;
+              }
+            }
           }
           &.javascript{
             animation: leveljscript 1s linear 1 normal forwards;

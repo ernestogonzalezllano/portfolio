@@ -1,3 +1,5 @@
+@import "../../styles/bp.scss";
+
 .element_contact{
     background: #72c0bc;
     margin-bottom: 4rem;
@@ -12,6 +14,9 @@
         filter: drop-shadow(2px 4px 6px black);
         &:hover{
           transform: scale(1.1);
+        }
+        @include respond-to("default") {
+          margin: 0 .5rem;
         }
       }
     }
