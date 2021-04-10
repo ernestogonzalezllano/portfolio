@@ -26,10 +26,10 @@ export default function Project({translate}) {
         <div className={styles.link}>
           <a href="https://lasrosas.herokuapp.com/" target="_blank">
             <h3>Las Rosas</h3>
-            {[{ position: 0, name: "lasrosas" },
-            { position: 1, name: "lasrosas2" },
-            { position: 2, name: "lasrosas3" },
-            { position: 3, name: "lasrosas4" }].map((e, i) => (<>
+            {[{ position: 0, name: "rosas" },
+            { position: 1, name: "rosas2" },
+            { position: 2, name: "rosas3" },
+            { position: 3, name: "rosas4" }].map((e, i) => (<>
               <img key={i} className={carousel === e.position ? styles.imgActive : null} src={`./images/${e.name}.png`}></img>
             </>))}
           </a>
