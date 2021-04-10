@@ -19,7 +19,9 @@
         width: 100%;
         img{
           height: 3rem;
-          filter:drop-shadow(2px 4px 6px black)
+          filter:drop-shadow(2px 4px 6px black);
+          width: 100%;
+          object-fit: contain;
         }
         div{
           width: 100%;
@@ -199,6 +201,50 @@
               }
               to{
                 width:80%;
+              }
+            }
+          }
+          &.typescript{
+            animation: leveltypescript 2s linear 1 normal forwards;
+            @keyframes leveltypescript {
+              from {
+                width:0%;
+              }
+              to{
+                width:70%;
+              }
+            }
+          }
+          &.reactnative{
+            animation: levelreactnative 1s linear 1 normal forwards;
+            @keyframes levelreactnative {
+              from {
+                width:0%;
+              }
+              to{
+                width:65%;
+              }
+            }
+          }
+          &.nest{
+            animation: levelnest 3s linear 1 normal forwards;
+            @keyframes levelnest {
+              from {
+                width:0%;
+              }
+              to{
+                width:65%;
+              }
+            }
+          }
+          &.mongo{
+            animation: levelmongo 1s linear 1 normal forwards;
+            @keyframes levelmongo {
+              from {
+                width:0%;
+              }
+              to{
+                width:75%;
               }
             }
           }

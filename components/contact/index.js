@@ -1,11 +1,11 @@
 import styles from "./index.module.scss"
 
 
-export default function Contact() {
+export default function Contact({translate}) {
 
     return(<div className={styles.element_contact}>
                 <h2 id="parrafo">
-                Contact
+                {translate.contact_title}
                 <div></div>
                 </h2>
                 <div>

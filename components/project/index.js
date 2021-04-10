@@ -1,7 +1,7 @@
 import styles from "./index.module.scss"
 import { useEffect, useState } from "react";
 
-export default function Project() {
+export default function Project({translate}) {
 
   const [carousel, setCarousel] = useState(0)
 
@@ -19,34 +19,34 @@ export default function Project() {
   return (
     <div className={styles.element_project}>
       <h2 id="parrafo">
-        Projects
+        {translate.projects_title}
         <div></div>
       </h2>
       <div className={styles.card_project}>
         <div className={styles.link}>
-          <a href="https://gardenry.shop" target="_blank">
-            <h3>Gardenry ecommerce</h3>
-            {[{ position: 0, name: "garden1" },
-            { position: 1, name: "garden2" },
-            { position: 2, name: "garden3" },
-            { position: 3, name: "garden4" }].map((e, i) => (<>
-              <img key={i} className={carousel === e.position ? styles.imgActive : null} src={`./images/${e.name}.jpg`}></img>
+          <a href="https://lasrosas.herokuapp.com/" target="_blank">
+            <h3>Las Rosas</h3>
+            {[{ position: 0, name: "lasrosas" },
+            { position: 1, name: "lasrosas2" },
+            { position: 2, name: "lasrosas3" },
+            { position: 3, name: "lasrosas4" }].map((e, i) => (<>
+              <img key={i} className={carousel === e.position ? styles.imgActive : null} src={`./images/${e.name}.png`}></img>
             </>))}
           </a>
         </div>
         <div>
+
           <p>
-            Ecommerce orientado a la actividad Viveril.
+          {translate.projects_lasrosas_expl}
           </p>
           <p>
-            Participé principalmente en la implementacion de Redux y la creacion de componentes
-            con React y su estilizado con Sass
+          {translate.projects_lasrosas_features}
           </p>
           <p>
-            Frontend: React, Redux, Sass.
+          {translate.projects_lasrosas_front}
           </p>
           <p>
-            Backend: Sequelize, Express, PostgreSQL, Passport.
+          {translate.projects_lasrosas_back}
           </p>
         </div>
       </div>
@@ -63,20 +63,18 @@ export default function Project() {
           </a>
         </div>
         <div>
+          
           <p>
-            App para el control de informacion dentro de un ambito académico.
+          {translate.projects_henryapp_expl}
           </p>
           <p>
-            Participé en el frontend de la web y desarrolle la app mobile.
+          {translate.projects_henryapp_features}
           </p>
           <p>
-            Mobile: React Native, Expo, React Native Paper, React Navigation, Redux, Apollo, GraphQL.
+          {translate.projects_henryapp_front}
           </p>
           <p>
-            Frontend: React, Redux, Material UI, Apollo.
-          </p>
-          <p>
-            Backend: Sequelize, Express, PostgreSQL, Passport, Apollo, GraphQL.
+          {translate.projects_henryapp_back}
           </p>
         </div>
       </div>

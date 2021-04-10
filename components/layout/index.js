@@ -5,17 +5,27 @@ import About from "../about/index"
 import Tech from "../tech/index"
 import Project from "../project/index"
 import Contact from "../contact/index"
+import Experience from "../experience/index"
+import SoftSkills from "../softSkills/index"
+import { useState } from 'react';
+import translate_es from "../../utils/translate_es"
+import translate_en from "../../utils/translate_en"
 
 const name = 'ernesto'
 export const siteTitle = 'Ernesto Full stack Developer'
-const scrollType = {
-  duration: 500,
-  delay: 50,
-  smooth: true,  
-  offset: 0,
-};
 
-export default function Layout({ children, home }) {
+export default function Layout() {
+
+  const[info,setInfo] = useState(true)
+  const[translate, setTranslate] = useState(translate_es)
+
+  function handleinfoMenu(){
+    setInfo(!info)
+  }
+  function handleTranslate(tr){
+    setTranslate(tr)
+    handleinfoMenu()
+  }
   return (
     <>
       <Head>
@@ -31,6 +41,7 @@ export default function Layout({ children, home }) {
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
+        <title>Full Stack Developer</title>
       </Head>
       <header className={styles.header}>
         <figure className={styles.header__imgContainer}>
@@ -41,34 +52,62 @@ export default function Layout({ children, home }) {
             Ernesto Gonzalez LLano
           </h1>
           <h2>
-            FULL STACK WEB DEVELOPER
+            FULL STACK DEVELOPER
           </h2>
         </div>
       </header>
       <main>
         <Element className={styles.element} name="about">
           <section>
-            <About/>
+            <About translate={translate}/>
           </section>
         </Element>
         <Element className={styles.element} name="tech">
           <section >
-            <Tech/>
+            <Tech translate={translate} />
           </section>  
         </Element>
-        <Element className={styles.element} name="project">
+
+        <Element className={styles.element} name="softskills">
           <section >
-            <Project/>
+            <SoftSkills translate={translate}/>
+          </section>  
+        </Element>
+        
+        <Element className={styles.element} name="experience">
+          <section >
+            <Experience translate={translate} />
           </section>
         </Element>
+
+        <Element className={styles.element} name="project">
+          <section >
+            <Project translate={translate}/>
+          </section>
+        </Element>
+        
       </main>
       <footer>
         <Element className={styles.element} name="contact">
           <section >
-            <Contact/>
+            <Contact translate={translate}/>
           </section>
         </Element>
       </footer>
+      <div 
+      id={styles.infoMenu} 
+      className={info?styles.inactive:styles.active}
+      >
+        <div>
+          <button onClick={()=>handleTranslate(translate_es)}>ES</button>
+          <button onClick={()=>handleTranslate(translate_en)}>EN</button>
+        </div>
+        <button 
+        onClick={handleinfoMenu} 
+        >
+          <img src="./images/menu.png"></img>
+        </button>
+      </div>
       </>
   )
 }

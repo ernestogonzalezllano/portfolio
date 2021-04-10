@@ -1,7 +1,7 @@
 import styles from "./index.module.scss"
 import { useEffect, useState } from "react";
 
-export default function Layout({ children, home }) {
+export default function About({translate}) {
 
     const [impChar, setImpChar] = useState(0)
 
@@ -18,15 +18,27 @@ export default function Layout({ children, home }) {
 
     return(<div className={styles.element_about}>
                 <h2 className="split" id="parrafo">
-                About
+                {translate.about_title}
                 </h2>
                 <div></div>
                 <p>
-                Como web developer junior estoy enfocado a <strong className={impChar === 0? styles.impChar:null}>aprender</strong> al máximo , 
-                <strong className={impChar === 1? styles.impChar:null}>adaptarme</strong> y afrontar todos y cada uno de los desafíos que se me asignen,
-                <strong className={impChar === 2? styles.impChar:null}>aportar</strong> mi experiencia en proyectos grupales e indivuales, tanto en backend y frontend y nutrirme de nuevas habilidades, que junto con las
-                propias, me permitan maximizar cada vez más mi capacidad de 
-                <strong className={impChar === 3? styles.impChar:null}> transformar</strong> programas,empresas, realidades y vidas
+                {translate.about_p1}
+                <strong className={impChar === 0? styles.impChar:null}>
+                {translate.about_str1}
+                </strong>
+                {translate.about_p2}
+                <strong className={impChar === 1? styles.impChar:null}>
+                {translate.about_str2}
+                </strong>
+                {translate.about_p3}
+                <strong className={impChar === 2? styles.impChar:null}>
+                {translate.about_str3}
+                </strong> 
+                {translate.about_p4}
+                <strong className={impChar === 3? styles.impChar:null}>
+                {translate.about_str4}
+                </strong> 
+                {translate.about_p5}
                 </p>
             </div>)
             
