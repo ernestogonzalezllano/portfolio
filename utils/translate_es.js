@@ -25,14 +25,26 @@ export default {
     experience_innova_date:"01-2021 / 04-2021",
 
     projects_title:"Proyectos",
+    /* ____ */
     projects_lasrosas_expl:"Desarrollo de e-commerce para la industria viveril",
     projects_lasrosas_features:"Características: ABM de productos, categorias, usuarios, ordenes. Login con email, facebook y google.Rutas protegidas con passport y JWT.Pagos a través de MercadoPago.",
     projects_lasrosas_front:"Frontend: React, Redux, Sass.",
     projects_lasrosas_back:"Backend: Sequelize, Express, PostgreSQL, Passport, MercadoPago.",
+    /* ____ */
     projects_henryapp_expl:"App Movil para gestión académica",
     projects_henryapp_features:"Características: Login con email y google. Acceso restringido a clases y videos. Creacion de grupos personalizados. Chat. Rutas protegidas con passport y JWT.",
     projects_henryapp_front:"Mobile: React Native, Expo, React Native Paper, React Navigation, Redux, Apollo, GraphQL.",
     projects_henryapp_back:"Backend: Sequelize, Express, PostgreSQL, Passport, Apollo, GraphQL.",
+    /* ____ */
+    projects_motores_expl:"Formulario para cálculos de energía de motores",
+    projects_motores_features:"Características: OCR para lectura de placas, agregado de fotos, validaciones en tiempo real",
+    projects_motores_front:"Front: React, Material-UI, Sass.",
+    projects_motores_back:"",
+    /* ____ */
+    projects_wallet_expl:"Billetera virtual de recargas y pagos",
+    projects_wallet_features:"Características:  Servidor REST y servidor SOAP. Login y rutas protegidas con passport y JWT. Pagos con doble confirmacion por medio de email con token.",
+    projects_wallet_front:"Front: React, Redux, Material-UI, Sass, Axios.",
+    projects_wallet_back:"Back: MySql, Node, Express, Sequelize, Passport, JWT, Nodemailer",
 
     contact_title:"Contacto",
 

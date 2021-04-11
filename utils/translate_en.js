@@ -29,11 +29,21 @@ export default {
     projects_lasrosas_features:"Features: products, categories, users and orders CRUD. Login with email, facebook and google.Passport and JWT protected routes. Payments through MercadoPago.",
     projects_lasrosas_front:"Frontend: React, Redux, Sass.",
     projects_lasrosas_back:"Backend: Sequelize, Express, PostgreSQL, Passport, MercadoPago.",
+    /* ____ */
     projects_henryapp_expl:"Mobile App for academic management",
     projects_henryapp_features:"Features: Login with email and google. Restricted access to classes and videos. Creation of custom groups. Chat. Passport and JWT protected routes.",
     projects_henryapp_front:"Mobile: React Native, Expo, React Native Paper, React Navigation, Redux, Apollo, GraphQL.",
     projects_henryapp_back:"Backend: Sequelize, Express, PostgreSQL, Passport, Apollo, GraphQL.",
-
+    /* ____ */
+    projects_motores_expl:"Form for motor energy calculations",
+    projects_motores_features:"Features: OCR for plate reading, adding photos, real-time validations",
+    projects_motores_front:"Front: React, Material-UI, Sass.",
+    projects_motores_back:"",
+    /* ____ */
+    projects_wallet_expl:"e-Wallet for recharges and payments",
+    projects_wallet_features:"Features: REST server and SOAP server. Login and routes protected with passport and JWT. Double confirmation payments by email with token.",
+    projects_wallet_front:"Front: React, Redux, Material-UI, Sass, Axios.",
+    projects_wallet_back:"Back: MySql, Node, Express, Sequelize, Passport, JWT, Nodemailer",
     contact_title:"Contact",
 
 }
