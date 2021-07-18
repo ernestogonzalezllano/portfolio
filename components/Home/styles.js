@@ -29,7 +29,10 @@ export const NavBar = styled.div`
     border-radius: 0 0 9999px;
     transition: background 1s;
     width: 100vw;
-    
+
+    display: grid;
+    grid-template-columns: max-content auto;
+
     animation-duration:1s;
     animation-name: ${({openMenu})=>openMenu?"openMenuNav":"closeMenuNav"};
     animation-fill-mode: forwards;
@@ -57,16 +60,22 @@ export const NavBar = styled.div`
 
     @media only screen and (min-width:${DESKTOP}){
         background: #707070b8;
+        display: flex;
     }
 `
 
 export const Menu = styled.ul`
     margin: 0;
     overflow: hidden;
+
+    grid-column-end: 3;
+    grid-column-start: 1;
+
     animation-duration:1s;
     animation-name: ${({openMenu})=>openMenu?"openMenu":"closeMenu"};
     animation-fill-mode: forwards;
     li{
+        align-self: center;
         list-style: none;
         margin: .5rem;
     }
@@ -109,15 +118,17 @@ export const LabelMenu = styled.a`
         transform: ${({isSelected})=>isSelected?"scaleX(1)":"scaleX(0)"};
     }
     @media only screen and (min-width:${DESKTOP}){
-        font-size:1.5rem;
+        font-size:1.2rem;
+        text-transform: uppercase;
     }
 `
 
 export const MenuButton = styled.button`
     width: 100%;
-    text-align: justify;
+    text-align: right;
     background: transparent;
     border: none;
+    outline: none;
     padding: .5rem;
     font-size: 2rem;   
     margin-left: 1rem;
@@ -125,10 +136,10 @@ export const MenuButton = styled.button`
         display:none;
     }
     i{
+        margin-right: 2rem;
         animation-duration:1s;
         animation-name: ${({openMenu})=>openMenu?"openMenuButton":"closeMenuButton"};
         animation-fill-mode: forwards;
-        
     }
     @keyframes openMenuButton{
         from{
@@ -151,4 +162,11 @@ export const MenuButton = styled.button`
             color: #000;
         }
     }
+`
+export const BrandMenu = styled.a`
+    font-size: 1.5rem;
+    padding: .5rem;
+    font-weight: 500;
+    align-self: center;
+    cursor: pointer;
 `
