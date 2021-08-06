@@ -243,6 +243,9 @@ export const OtherContainer = styled.div`
 `
 
 export const Layout = styled.div`
+    button{
+        cursor: pointer;
+    }
 `
 
 export const PortfolioButton = styled.button`
@@ -402,4 +405,193 @@ export const ImgAboutContainer = styled.div`
         }
 
     }
+`
+
+export const PortfolioContainer = styled.div`
+    background-color: #343436;
+    padding: 1rem;
+`
+
+export const TitlePortfolioContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label{
+        color: #f3c26b;
+    }
+    h2{
+        color: #fff;
+        position: relative;
+        ::before{
+            content: "";
+            position: absolute;
+            border: 1px solid;
+            bottom: -9px;
+            width: 100%;
+        }
+    }
+`
+
+export const FilterPortfolioContainer = styled.div`
+    ul{
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        li{
+            margin: 1rem;
+        }
+    }
+  
+`
+
+export const LabelFilterPortfolio = styled.a`
+    color: ${({isSelected})=>isSelected?"#f3c26b":"#fff"};
+    position: relative;
+    ::before{
+        content: "";
+        display: ${({isSelected})=>isSelected?"block":"none"};
+        position: absolute;
+        bottom:-3px;
+        width: 100%;
+        left: 0;
+        animation-duration:.5s;
+        animation-name: ${({isSelected})=>isSelected?"selectFilter":""};
+        animation-fill-mode: forwards;
+        border: 1px solid #f3c26b;
+        @keyframes selectFilter{
+            from {
+                transform:scaleX(0);
+            }
+            to{
+                transform:scaleX(1);
+            }
+        }
+    }
+
+`
+
+export const CardsPortfolioContainer = styled.div`
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,18rem),.5fr));
+    justify-content: center;
+    @media only screen and (min-width:${TABLET}){
+        padding:0 3rem;
+    }
+`
+
+
+export const ImageCardContainer = styled.div`
+    img{
+        width:100%
+    }
+`
+
+export const InfoCardContainer = styled.div`
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height:100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    transition: backdrop-filter .5s, filter .5s;
+    filter: opacity(0);
+    div{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        height: fit-content;
+        label{
+            height: min-content;
+            margin: .2rem;
+            padding: .3rem;
+            background: #f3c26b;
+            border-radius: 9999px;
+            font-size: .8rem;
+        }
+    }
+    h3{
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        color: white;
+        margin: .5rem;
+    }
+    button{
+        background: none;
+        outline: none;
+        color: #f3c26b;
+        border: 1px solid;
+        border-radius: .5rem;
+        padding: 0 1rem;
+        width: 100%;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+`
+
+
+export const CardsPortfolio = styled.div`
+    position: relative;
+    :hover{
+        ${InfoCardContainer} {
+            transition: backdrop-filter .5s, filter .5s;
+            backdrop-filter: brightness(0.1);
+            filter: opacity(1);
+        }
+    }
+`
+
+export const ModalGallery = styled.div`
+    
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 1000;
+    background: black;
+    top: 0;
+    display: grid;
+    grid-template-rows: 2rem auto 2rem;
+    grid-template-columns: 100vw;
+    div{
+        display: flex;
+        height: 100%;
+        transition: transform 1s;
+        transform: ${(({page})=>'translate(-'+page*100+'vw)')};
+        img{
+            width: 100vw;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+    }
+    label{
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
+`
+
+export const CloseModalGallery = styled.button`
+    appearance: none;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 2rem;
+    width: 100%;
+    text-align: end; 
+`
+
+export const ChangeImageButton = styled.button`
+    position: absolute;
+    top: 50%;
+    right: ${(({isRight})=>isRight?"17px":"")};
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 2rem;
+    font-weight: 800;
 `

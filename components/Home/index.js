@@ -1,7 +1,49 @@
 import { useEffect, useRef, useState } from "react";
-import { ImgAboutContainer,HomeContainer, NavBar,Menu, MenuButton, LabelMenu, BrandMenu, OtherContainer,Layout,PortfolioButton,AboutButton, AboutContainer } from "./styles";
+import { 
+    ImgAboutContainer,
+    HomeContainer, 
+    NavBar,
+    Menu, 
+    MenuButton, 
+    LabelMenu, 
+    BrandMenu, 
+    OtherContainer,
+    Layout,
+    PortfolioButton,
+    AboutButton, 
+    AboutContainer, 
+    PortfolioContainer, 
+    TitlePortfolioContainer, 
+    FilterPortfolioContainer, 
+    LabelFilterPortfolio,
+    CardsPortfolioContainer,
+    CardsPortfolio,
+    ImageCardContainer,
+    InfoCardContainer,
+    ModalGallery,
+    CloseModalGallery,
+    ChangeImageButton
+} from "./styles";
 
-export default function Home(){
+export const Projects=[
+    {
+        name:"Gardenry",
+        images:["garden1", "garden2", "garden3", "garden4"],
+        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"]
+    }, 
+    {
+        name:"Gardenry",
+        images:["garden1", "garden2", "garden3", "garden4"],
+        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"]
+    }, 
+    {
+        name:"Gardenry",
+        images:["garden1", "garden2", "garden3", "garden4"],
+        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"]
+    }
+]
+
+export default function (){
     const [openMenu, setOpenMenu]=useState(false)
     const [sectionSelected, setSectionSelected]=useState("Home")
     const homeRef = useRef(null);
@@ -17,6 +59,29 @@ export default function Home(){
             setOpenMenu(false)
         }, 150);
         window.scrollTo({top: (references[e.target.name].current.offsetTop-45), behavior: 'smooth'});
+    }
+
+    const [filterPortfolio, setFilterPortfolio] = useState("all")
+
+    function handleFilterPortfolio(e){
+        setFilterPortfolio(e.target.name)
+    }
+
+    const [galleryImages, setGalleryImages] = useState(false)
+
+    function handleGalleryImages(images){
+        if(!images) setGalleryPage(0)
+        setGalleryImages(images)
+    }
+
+    const [galleryPage, setGalleryPage] = useState(0)
+
+    function handleGalleryPage(type){
+        if(type){
+            setGalleryPage(galleryPage+1)
+        }else{
+            setGalleryPage(galleryPage-1)
+        }
     }
 
     return(
@@ -54,6 +119,68 @@ export default function Home(){
                 <p>About As a web developer I am focused on  learning  to the fullest,  adapting  and facing each and every one of the challenges assigned to me,  contributing  my experience in group and individual projects, both in backend and frontend and nourishing myself with new skills, which together with my own , allow me to increasingly maximize my ability to  transform  programs, companies, realities and lives.</p>
             </div>
         </AboutContainer>
+        <PortfolioContainer>
+            <TitlePortfolioContainer>
+                <label>Let's See My Work</label>
+                <h2>MY PORTFOLIO</h2>
+            </TitlePortfolioContainer>
+            <FilterPortfolioContainer>
+                <ul>
+                    <li><LabelFilterPortfolio isSelected={filterPortfolio ==="all"} name="all" onClick={handleFilterPortfolio} >All</LabelFilterPortfolio></li>
+                    <li><LabelFilterPortfolio isSelected={filterPortfolio ==="web"} name="web" onClick={handleFilterPortfolio} >Web</LabelFilterPortfolio></li>
+                    <li><LabelFilterPortfolio isSelected={filterPortfolio ==="mobile"} name="mobile" onClick={handleFilterPortfolio} >Mobile</LabelFilterPortfolio></li>
+                </ul>
+            </FilterPortfolioContainer>
+            <CardsPortfolioContainer>
+
+                {
+                    Projects.map(({name,images,techs})=>
+                        <CardsPortfolio>
+                            <ImageCardContainer>    
+                                <img src={`./images/${images[0]}.jpg`} />
+                            </ImageCardContainer>
+                            <InfoCardContainer>
+                                <div>
+                                    {
+                                        techs.map((tech)=><label>{tech}</label>)
+                                    }
+                                </div>
+                                <h3>{name}</h3>
+                                <button onClick={()=>handleGalleryImages(images)}>Gallery</button>
+                            </InfoCardContainer>
+                        </CardsPortfolio>
+                    )
+                }
+            </CardsPortfolioContainer>
+        </PortfolioContainer>
+        {
+            galleryImages 
+            && 
+            <ModalGallery page={galleryPage} >
+                <CloseModalGallery onClick={()=>handleGalleryImages(false)} ><i class="far fa-times-circle"></i></CloseModalGallery> 
+                <div>
+                    {
+                        galleryImages.map((image)=>(
+                            <img src={`./images/${image}.jpg`} />
+                        ))
+                    }
+                </div>
+                <ChangeImageButton 
+                    disabled={galleryPage===0}
+                    onClick={()=>handleGalleryPage()} 
+                >
+                    {"<"}
+                </ChangeImageButton>
+                <ChangeImageButton 
+                    disabled={galleryPage+1===galleryImages.length}
+                    onClick={()=>handleGalleryPage(true)} 
+                    isRight={true} 
+                >
+                    {">"}
+                </ChangeImageButton>
+                <label> {galleryPage+1} de {galleryImages.length}</label>
+            </ModalGallery>
+        }
         <OtherContainer >
         </OtherContainer>
         </Layout>
