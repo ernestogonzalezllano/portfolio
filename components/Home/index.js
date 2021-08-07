@@ -257,7 +257,7 @@ export default function Home(){
                     Projects.map(({name,images,techs,href})=>
                         <CardsPortfolio>
                             <ImageCardContainer>    
-                                <img src={`./images/${images[0]}.png`} />
+                                <img src={`./images/${images[0]}.PNG`} />
                             </ImageCardContainer>
                             <InfoCardContainer>
                                 <div>
