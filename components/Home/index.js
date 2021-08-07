@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { 
     ImgAboutContainer,
     HomeContainer, 
@@ -22,7 +22,10 @@ import {
     InfoCardContainer,
     ModalGallery,
     CloseModalGallery,
-    ChangeImageButton
+    ChangeImageButton,
+    SkillsContainer,
+    SkillCard,
+    SkillCardsContainer
 } from "./styles";
 
 export const Projects=[
@@ -43,14 +46,55 @@ export const Projects=[
     }
 ]
 
+export const Skills={
+    "Front end":[
+        "Javascript",
+        "Typescript",
+        "React",
+        "Redux",
+        "Sass",
+        "Styled Components",
+        "Apollo"
+    ],
+    "Back end":[
+        "NodeJs",
+        "ExpressJs",
+        "NestJs",
+        "GraphQl",
+        "Sequelize",
+        "TypeORM",
+        "Mongoose",
+        "Passport"
+    ],
+    "Databases":[
+        "MySql",
+        "PostgreSQL",
+        "MongoDb"
+    ],
+    "Mobile": [
+        "React Native",
+        "Expo"
+    ],
+    "Cloud services":[
+        "Heroku"
+    ],
+    "Agile Methods":[
+        "Scrum"
+    ]
+}
+
 export default function (){
     const [openMenu, setOpenMenu]=useState(false)
     const [sectionSelected, setSectionSelected]=useState("Home")
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
+    const portfolioRef = useRef(null);
+    const skillsRef = useRef(null);
     const references = {
         Home:homeRef,
-        About:aboutRef
+        About:aboutRef,
+        Portfolio:portfolioRef,
+        Skills:skillsRef,
     }
     function handleSectionSelected(e){
         e.preventDefault();
@@ -95,7 +139,7 @@ export default function (){
                 <li><LabelMenu isSelected={sectionSelected==="About"} name="About" onClick={handleSectionSelected}>About</LabelMenu></li>
                 <li><LabelMenu isSelected={sectionSelected==="Technologies"} name="Technologies" onClick={handleSectionSelected}>Technologies</LabelMenu></li>
                 <li><LabelMenu isSelected={sectionSelected==="Portfolio"} name="Portfolio" onClick={handleSectionSelected}>Portfolio</LabelMenu></li>
-                <li><LabelMenu isSelected={sectionSelected==="Contact"} name="Contact" onClick={handleSectionSelected}>Contact</LabelMenu></li>
+                <li><LabelMenu isSelected={sectionSelected==="Skills"} name="Skills" onClick={handleSectionSelected}>Skills</LabelMenu></li>
             </Menu>
         </NavBar>
         <HomeContainer ref={homeRef} >
@@ -104,7 +148,7 @@ export default function (){
             <div>
                 <h3>Semi-Senior Web Developer</h3>
             </div>
-            <PortfolioButton>My portfolio</PortfolioButton>
+            <PortfolioButton  name="Portfolio" onClick={handleSectionSelected} >My portfolio</PortfolioButton>
             <AboutButton name="About" onClick={handleSectionSelected}>It's Me!</AboutButton>
         </HomeContainer>
         <AboutContainer ref={aboutRef}>
@@ -119,7 +163,7 @@ export default function (){
                 <p>About As a web developer I am focused on  learning  to the fullest,  adapting  and facing each and every one of the challenges assigned to me,  contributing  my experience in group and individual projects, both in backend and frontend and nourishing myself with new skills, which together with my own , allow me to increasingly maximize my ability to  transform  programs, companies, realities and lives.</p>
             </div>
         </AboutContainer>
-        <PortfolioContainer>
+        <PortfolioContainer ref={portfolioRef} > 
             <TitlePortfolioContainer>
                 <label>Let's See My Work</label>
                 <h2>MY PORTFOLIO</h2>
@@ -161,7 +205,9 @@ export default function (){
                 <div>
                     {
                         galleryImages.map((image)=>(
-                            <img src={`./images/${image}.jpg`} />
+                            <div>
+                                <img src={`./images/${image}.jpg`} />
+                            </div>
                         ))
                     }
                 </div>
@@ -181,6 +227,24 @@ export default function (){
                 <label> {galleryPage+1} de {galleryImages.length}</label>
             </ModalGallery>
         }
+        <SkillsContainer ref={skillsRef} >
+            <TitlePortfolioContainer>
+                <label>Code</label>
+                <h2>MY Skills</h2>
+            </TitlePortfolioContainer>
+            <SkillCardsContainer>
+                {
+                    Object.keys(Skills).map((type)=>{
+                        return  <SkillCard>
+                                    <h3>{type}</h3>
+                                    <div>
+                                        {Skills[type].map((skill)=><label>{skill}</label>)}
+                                    </div>
+                                </SkillCard>
+                    })
+                }
+            </SkillCardsContainer>
+        </SkillsContainer>
         <OtherContainer >
         </OtherContainer>
         </Layout>

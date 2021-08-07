@@ -410,6 +410,7 @@ export const ImgAboutContainer = styled.div`
 export const PortfolioContainer = styled.div`
     background-color: #343436;
     padding: 1rem;
+    padding-bottom: 4rem;
 `
 
 export const TitlePortfolioContainer = styled.div`
@@ -561,11 +562,17 @@ export const ModalGallery = styled.div`
         display: flex;
         height: 100%;
         transition: transform 1s;
-        transform: ${(({page})=>'translate(-'+page*100+'vw)')};
-        img{
+        transform: ${(({page})=>'translate(-'+page*50+'vw)')};
+        div{
             width: 100vw;
-            object-fit: contain;
+            display: flex;
             flex-shrink: 0;
+            justify-content: center;
+            img{
+                object-fit: contain;
+                width: 100%;
+                max-width: 45rem;
+            }
         }
     }
     label{
@@ -594,4 +601,51 @@ export const ChangeImageButton = styled.button`
     background: transparent;
     font-size: 2rem;
     font-weight: 800;
+    background: #fff;
+    border-radius: 9999px;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+`
+
+export const SkillsContainer = styled.section`
+    background-color: #2f2f31;
+    padding: 1rem;
+    padding-bottom: 4rem;
+    
+    
+`
+
+export const SkillCard = styled.div`
+    margin-bottom: 2rem;
+    h3{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom:.5rem;
+    }
+    div{
+        display: flex;
+        overflow: hidden;
+        flex-wrap: wrap;
+        label{
+            padding: .5rem;
+            background: #f3c26b;
+            border-radius: 6px;
+            margin: .5rem .5rem 0 0;
+            font-size: .7rem;
+            font-weight: 600;
+        }
+    }
+    
+`
+export const SkillCardsContainer = styled.div`
+    max-width: 70rem;
+    margin: auto;
+    @media only screen and (min-width:${TABLET}){
+            display: grid;
+            column-gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+    }
 `
