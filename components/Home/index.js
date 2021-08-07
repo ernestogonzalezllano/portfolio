@@ -1,4 +1,4 @@
-import {  useRef, useState } from "react";
+import {  useEffect, useRef, useState } from "react";
 import { 
     ImgAboutContainer,
     HomeContainer, 
@@ -7,7 +7,6 @@ import {
     MenuButton, 
     LabelMenu, 
     BrandMenu, 
-    OtherContainer,
     Layout,
     PortfolioButton,
     AboutButton, 
@@ -25,25 +24,45 @@ import {
     ChangeImageButton,
     SkillsContainer,
     SkillCard,
-    SkillCardsContainer
+    SkillCardsContainer,
+    ContactContainer,
+    ContactCardsContainer,
+    FooterContainer,
 } from "./styles";
 
 export const Projects=[
     {
-        name:"Gardenry",
-        images:["garden1", "garden2", "garden3", "garden4"],
-        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"]
+        name:"Energía Store",
+        images:["estore","estore1", "estore2", "estore3", "estore4", "estore5"],
+        techs:["React", "Styled components", "Bootstrap", "Redux", "NodeJs", "NestJs"],
+        href:"https://www.energiastore.com/"
     }, 
     {
-        name:"Gardenry",
-        images:["garden1", "garden2", "garden3", "garden4"],
-        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"]
+        name:"Admin Energía Store",
+        images:["adminestore","adminestore1", "adminestore2", "adminestore3", "adminestore4", "adminestore5"],
+        techs:["React", "Tailwind", "Redux", "NodeJs", "NestJs", "Firebase Auth"],
+        href:"https://admin.energiastore.com/"
+    },
+    {
+        name:"Las Rosas",
+        images:["lasrosas", "lasrosas1", "lasrosas2", "lasrosas3","lasrosas4", "lasrosas5", "lasrosas6", "lasrosas7"],
+        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"],
+        href:"https://lasrosas.herokuapp.com/"
     }, 
     {
-        name:"Gardenry",
-        images:["garden1", "garden2", "garden3", "garden4"],
-        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"]
-    }
+        name:"Henry App",
+        images:["henryapp1", "henryapp2", "henryapp3", "henryapp4"],
+        techs:["React", "React Native", "Expo", "Apollo", "GraphQl", "React Paper", "React Navigation"],
+        href:"https://expo.dev/@toti10/henryapp",
+        isMobile: true
+    }, 
+    {
+        name:"ChipDitt",
+        images:["chip", "chip1", "chip2", "chip3"],
+        techs:["React", "React Native", "Expo", "React Paper", "React Navigation", "Lottie"],
+        href:"https://expo.dev/@toti10/ChipDitt",
+        isMobile: true
+    }, 
 ]
 
 export const Skills={
@@ -83,18 +102,60 @@ export const Skills={
     ]
 }
 
-export default function (){
+export const Contacts= [
+    {
+        name:"Address",
+        value:"Tucumán, Argentina",
+        icon:"fa fa-location-arrow",
+        href:"https://www.google.com/maps?q=tucuman+argentina&um=1&ie=UTF-8&sa=X&sqi=2&ved=2ahUKEwirxuPhq5_yAhXLnpUCHabMA8IQ_AUoAnoECAEQBA"
+    },
+    {
+        name:"WhatsApp Me",
+        value:"+5493816444487",
+        icon:"fab fa-whatsapp",
+        href:"https://api.whatsapp.com/send?phone=5493816444487&text=Hola%20Ernesto!"
+    },
+    {
+        name:"Email",
+        value:"ernestogonzalezllano@gmail.com",
+        icon:"fa fa-envelope",
+        href:"mailto:ernestogonzalezllano@gmail.com"
+    }
+]
+
+export const Socials =[
+    {
+        href:"https://www.linkedin.com/in/ernesto-gonzalez-llano/",
+        icon:"fab fa-linkedin"
+    },
+    {
+        href:"https://github.com/ernestogonzalezllano",
+        icon:"fab fa-github"
+    },
+    {
+        href:"https://drive.google.com/file/d/1zWveqwNEZF6Lt4bnyW6M0FMiBm8LdBrp/view?usp=sharing",
+        icon:"fas fa-file-alt"
+    },
+    {
+        href:"https://api.whatsapp.com/send?phone=5493816444487&text=Hola%20Ernesto!",
+        icon:"fab fa-whatsapp"
+    },
+]
+
+export default function Home(){
     const [openMenu, setOpenMenu]=useState(false)
     const [sectionSelected, setSectionSelected]=useState("Home")
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
     const portfolioRef = useRef(null);
     const skillsRef = useRef(null);
+    const contactRef = useRef(null);
     const references = {
         Home:homeRef,
         About:aboutRef,
         Portfolio:portfolioRef,
         Skills:skillsRef,
+        Contact:contactRef,
     }
     function handleSectionSelected(e){
         e.preventDefault();
@@ -128,6 +189,21 @@ export default function (){
         }
     }
 
+    useEffect(()=>{
+        function scroll(){
+            let curr = window.pageYOffset +150
+            for (const ref in references) {
+             let element =references[ref].current
+             if(curr > element.offsetTop && curr < (element.offsetHeight+element.offsetTop)){
+                setSectionSelected(ref)
+             } 
+            }
+        }
+        document.addEventListener('scroll',scroll )
+        return ()=>document.removeEventListener('scroll', scroll)
+    },[])
+    
+
     return(
         <Layout>
         <NavBar  openMenu={openMenu} >
@@ -137,9 +213,9 @@ export default function (){
             </MenuButton>
             <Menu openMenu={openMenu} >
                 <li><LabelMenu isSelected={sectionSelected==="About"} name="About" onClick={handleSectionSelected}>About</LabelMenu></li>
-                <li><LabelMenu isSelected={sectionSelected==="Technologies"} name="Technologies" onClick={handleSectionSelected}>Technologies</LabelMenu></li>
                 <li><LabelMenu isSelected={sectionSelected==="Portfolio"} name="Portfolio" onClick={handleSectionSelected}>Portfolio</LabelMenu></li>
                 <li><LabelMenu isSelected={sectionSelected==="Skills"} name="Skills" onClick={handleSectionSelected}>Skills</LabelMenu></li>
+                <li><LabelMenu isSelected={sectionSelected==="Contact"} name="Contact" onClick={handleSectionSelected}>Contact</LabelMenu></li>
             </Menu>
         </NavBar>
         <HomeContainer ref={homeRef} >
@@ -178,10 +254,10 @@ export default function (){
             <CardsPortfolioContainer>
 
                 {
-                    Projects.map(({name,images,techs})=>
+                    Projects.map(({name,images,techs,href})=>
                         <CardsPortfolio>
                             <ImageCardContainer>    
-                                <img src={`./images/${images[0]}.jpg`} />
+                                <img src={`./images/${images[0]}.png`} />
                             </ImageCardContainer>
                             <InfoCardContainer>
                                 <div>
@@ -189,7 +265,7 @@ export default function (){
                                         techs.map((tech)=><label>{tech}</label>)
                                     }
                                 </div>
-                                <h3>{name}</h3>
+                                <a target="_blank" href={href} >{name}</a>
                                 <button onClick={()=>handleGalleryImages(images)}>Gallery</button>
                             </InfoCardContainer>
                         </CardsPortfolio>
@@ -206,7 +282,7 @@ export default function (){
                     {
                         galleryImages.map((image)=>(
                             <div>
-                                <img src={`./images/${image}.jpg`} />
+                                <img src={`./images/${image}.png`} />
                             </div>
                         ))
                     }
@@ -245,8 +321,31 @@ export default function (){
                 }
             </SkillCardsContainer>
         </SkillsContainer>
-        <OtherContainer >
-        </OtherContainer>
+        <ContactContainer ref={contactRef} >
+            <TitlePortfolioContainer>
+                <label>Get in Touch</label>
+                <h2>Contact Me</h2>
+            </TitlePortfolioContainer>
+            <ContactCardsContainer>
+                {
+                    Contacts.map(({name, value, icon,href})=>(
+                        <div>
+                            <h3><i className={icon} /> {name}</h3>
+                            <a href={href} target='_blank' >{value}</a>
+                            <i className={icon} />
+                        </div>
+                    ))
+                }
+            </ContactCardsContainer>
+        </ContactContainer>
+        <FooterContainer>
+            <div>
+                {
+                    Socials.map(({href,icon})=><a target="_blank" href={href}><i className={icon}></i></a>)
+                }
+            </div>
+            <label> © 2021 All Rights Reserved </label>
+        </FooterContainer>
         </Layout>
     )
 }

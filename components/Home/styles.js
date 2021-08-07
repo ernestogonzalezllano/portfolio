@@ -485,6 +485,11 @@ export const CardsPortfolioContainer = styled.div`
 
 
 export const ImageCardContainer = styled.div`
+    height: 100%;
+    display: flex;
+    width: 100%;
+    padding: 2px;
+    box-sizing: border-box;
     img{
         width:100%
     }
@@ -515,12 +520,16 @@ export const InfoCardContainer = styled.div`
             font-size: .8rem;
         }
     }
-    h3{
+    a{
         width: 100%;
         text-align: center;
         font-size: 2rem;
         color: white;
         margin: .5rem;
+        text-decoration: none;
+        :hover{
+            color:#f3c26b;
+        }
     }
     button{
         background: none;
@@ -572,6 +581,7 @@ export const ModalGallery = styled.div`
                 object-fit: contain;
                 width: 100%;
                 max-width: 45rem;
+                max-height: 100vh;
             }
         }
     }
@@ -613,7 +623,6 @@ export const SkillsContainer = styled.section`
     padding: 1rem;
     padding-bottom: 4rem;
     
-    
 `
 
 export const SkillCard = styled.div`
@@ -641,11 +650,110 @@ export const SkillCard = styled.div`
     
 `
 export const SkillCardsContainer = styled.div`
-    max-width: 70rem;
+    max-width: 50rem;
     margin: auto;
     @media only screen and (min-width:${TABLET}){
             display: grid;
             column-gap: 3rem;
             grid-template-columns: 1fr 1fr;
+    }
+`
+
+export const ContactContainer = styled.section`
+    background-color: #2f2f31;
+    padding: 1rem;
+    padding-bottom: 4rem;
+    background-image: url("./images/map_img.png");
+    background-position-y: 55%;
+    background-position-x: 18%;
+    background-blend-mode: color-burn;
+
+    @media only screen and (min-width:${TABLET}){
+        background-position-y: 57%;
+        background-position-x: 39%;
+    }
+`
+
+export const ContactCardsContainer = styled.div`
+    div{
+        padding: 1rem;
+        background: #343436;
+        border: 1px solid #2b2b2d;
+        margin: 1rem;
+        position: relative;
+        min-width: 260px;
+        box-sizing: border-box;
+        h3{
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 1rem;
+            i{
+                color:#f3c26b;
+                padding: 8px;
+                backdrop-filter: brightness(0.8);
+                border-radius: 3px;
+                margin-right: 4px;
+            }
+        }
+        a{
+            font-size: .8rem;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            z-index:500;
+            text-decoration: none;
+            :hover{
+                color: #f3c26b;
+            }
+        }
+        >i{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 2.5rem;
+            z-index:0;
+            color: #404040;
+        }
+    }
+    @media only screen and (min-width:${TABLET}){
+        display: flex;
+        max-width: 50rem;
+        margin: auto;
+        overflow: none;
+        flex-flow: wrap;
+        justify-content: center;
+    }
+    @media only screen and (min-width:${DESKTOP}){
+        max-width: 62rem;
+    }
+`
+
+export const FooterContainer = styled.footer`
+    background-color: #2f2f31;
+    padding: 3rem;
+    div{
+        display: flex;
+        width: min-content;
+        margin: auto;
+        a{
+            margin: 0 .5rem;
+            i{
+                color: #fff;
+            }
+            :hover{
+                i{
+                    color: #f3c26b;
+                }
+            }
+        }
+    }
+    label{
+        display: block;
+        text-align: center;
+        margin-top: 2rem;
+        color: #fff;
+        font-size: .8rem;
     }
 `
