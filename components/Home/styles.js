@@ -105,7 +105,7 @@ export const NavBar = styled.div`
     @keyframes openMenuNav{
         from{
             box-shadow: 2px 1px 2px #474545;
-            background: #70707057;
+            background: #505050e6;
 
         }
         to{
@@ -120,7 +120,7 @@ export const NavBar = styled.div`
         }
         to{
             box-shadow: 2px 1px 2px #474545;
-            background: #70707057;
+            background: #505050e6;
         }
     }
 
@@ -450,6 +450,7 @@ export const FilterPortfolioContainer = styled.div`
 export const LabelFilterPortfolio = styled.a`
     color: ${({isSelected})=>isSelected?"#f3c26b":"#fff"};
     position: relative;
+    cursor: pointer;
     ::before{
         content: "";
         display: ${({isSelected})=>isSelected?"block":"none"};
@@ -476,7 +477,7 @@ export const LabelFilterPortfolio = styled.a`
 export const CardsPortfolioContainer = styled.div`
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit,minmax(min(100%,18rem),.5fr));
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,18rem),.3fr));
     justify-content: center;
     @media only screen and (min-width:${TABLET}){
         padding:0 3rem;
@@ -756,4 +757,26 @@ export const FooterContainer = styled.footer`
         color: #fff;
         font-size: .8rem;
     }
+`
+
+export const CertsContainer = styled.section`
+    background-color: #2f2f31;
+    padding: 1rem;  
+`
+
+export const CardCertsContainer = styled.div`
+    display: flex;
+    max-width: 20rem;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 2rem;
+    div{
+        width: 8rem;
+        a{
+            img{
+                width: 100%;
+            }
+        }
+    }
+
 `

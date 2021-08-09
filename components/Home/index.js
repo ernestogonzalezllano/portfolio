@@ -28,37 +28,39 @@ import {
     ContactContainer,
     ContactCardsContainer,
     FooterContainer,
+    CertsContainer,
+    CardCertsContainer,
 } from "./styles";
 
 export const Projects=[
     {
         name:"Energía Store",
-        images:["estore","estore1", "estore2", "estore3", "estore4", "estore5"],
+        images:["store","store1", "store2", "store3", "store4", "store5"],
         techs:["React", "Styled components", "Bootstrap", "Redux", "NodeJs", "NestJs"],
         href:"https://www.energiastore.com/"
     }, 
     {
         name:"Admin Energía Store",
-        images:["adminestore","adminestore1", "adminestore2", "adminestore3", "adminestore4", "adminestore5"],
+        images:["adminstore","adminstore1", "adminstore2", "adminstore3", "adminstore4", "adminstore5"],
         techs:["React", "Tailwind", "Redux", "NodeJs", "NestJs", "Firebase Auth"],
         href:"https://admin.energiastore.com/"
     },
     {
         name:"Las Rosas",
-        images:["lasrosas", "lasrosas1", "lasrosas2", "lasrosas3","lasrosas4", "lasrosas5", "lasrosas6", "lasrosas7"],
+        images:["larosas", "larosas1", "larosas2", "larosas3","larosas4", "larosas5", "larosas6", "larosas7"],
         techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"],
         href:"https://lasrosas.herokuapp.com/"
     }, 
     {
         name:"Henry App",
-        images:["henryapp1", "henryapp2", "henryapp3", "henryapp4"],
+        images:["henryap1", "henryap2", "henryap3", "henryap4"],
         techs:["React", "React Native", "Expo", "Apollo", "GraphQl", "React Paper", "React Navigation"],
         href:"https://expo.dev/@toti10/henryapp",
         isMobile: true
     }, 
     {
         name:"ChipDitt",
-        images:["chip", "chip1", "chip2", "chip3"],
+        images:["chipp", "chipp1", "chipp2", "chipp3"],
         techs:["React", "React Native", "Expo", "React Paper", "React Navigation", "Lottie"],
         href:"https://expo.dev/@toti10/ChipDitt",
         isMobile: true
@@ -142,7 +144,18 @@ export const Socials =[
     },
 ]
 
-export default function Home(){
+export const Certs = [
+    {
+        href:"https://certificates.soyhenry.com/cert?id=73bc1901-7d51-4c9c-9846-d22aefeb5546",
+        img:"henry"
+    },
+    {
+        href:"https://platzi.com/p/ernestogonzalezllano296/curso/1601-course/diploma/detalle/",
+        img:"react_icon"
+    },
+]
+
+export default function (){
     const [openMenu, setOpenMenu]=useState(false)
     const [sectionSelected, setSectionSelected]=useState("Home")
     const homeRef = useRef(null);
@@ -168,8 +181,12 @@ export default function Home(){
 
     const [filterPortfolio, setFilterPortfolio] = useState("all")
 
-    function handleFilterPortfolio(e){
-        setFilterPortfolio(e.target.name)
+    function handleFilterPortfolio({target:{name}}){
+        setFilterPortfolio(name)
+        if(name === "all") setProjects(Projects)
+        else if(name === "web") setProjects(Projects.filter((project)=>!project.isMobile))
+        else setProjects(Projects.filter((project)=>project.isMobile))
+
     }
 
     const [galleryImages, setGalleryImages] = useState(false)
@@ -202,6 +219,8 @@ export default function Home(){
         document.addEventListener('scroll',scroll )
         return ()=>document.removeEventListener('scroll', scroll)
     },[])
+
+    const [projects, setProjects] = useState(Projects)
     
 
     return(
@@ -254,10 +273,10 @@ export default function Home(){
             <CardsPortfolioContainer>
 
                 {
-                    Projects.map(({name,images,techs,href})=>
+                    projects.map(({name,images,techs,href})=>
                         <CardsPortfolio>
                             <ImageCardContainer>    
-                                <img src={`./images/${images[0]}.PNG`} />
+                                <img src={`./images/${images[0]}.png`} />
                             </ImageCardContainer>
                             <InfoCardContainer>
                                 <div>
@@ -321,6 +340,20 @@ export default function Home(){
                 }
             </SkillCardsContainer>
         </SkillsContainer>
+        <CertsContainer>
+            <TitlePortfolioContainer>
+                <label>Certifications And Courses</label>
+                <h2>MY CERTIFICATIONS</h2>
+            </TitlePortfolioContainer>
+            <CardCertsContainer>
+                {
+                    Certs.map(({img,href})=>
+                    <div>
+                        <a href={href} target="_blank"><img src={`./images/${img}.png`}  /></a>
+                    </div>)
+                }
+            </CardCertsContainer>
+        </CertsContainer>
         <ContactContainer ref={contactRef} >
             <TitlePortfolioContainer>
                 <label>Get in Touch</label>
