@@ -100,7 +100,8 @@ export const Skills={
         "Heroku"
     ],
     "Agile Methods":[
-        "Scrum"
+        "Scrum",
+        "Kanban"
     ]
 }
 
@@ -155,7 +156,7 @@ export const Certs = [
     },
 ]
 
-export default function Home(){
+export default function (){
     const [openMenu, setOpenMenu]=useState(false)
     const [sectionSelected, setSectionSelected]=useState("Home")
     const homeRef = useRef(null);
@@ -211,7 +212,7 @@ export default function Home(){
 
     useEffect(()=>{
         function scroll(){
-            let curr = window.pageYOffset +150
+            let curr = window.pageYOffset +250
             for (const ref in references) {
              let element =references[ref].current
              if(curr > element.offsetTop && curr < (element.offsetHeight+element.offsetTop)){
