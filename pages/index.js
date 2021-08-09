@@ -1,8 +1,8 @@
-import Layout, { siteTitle } from '../components/layout/index'
+import Home from '../components/Home/index'
 
 
-export default function Home() {
+export default function Layout() {
   return (
-    <Layout ></Layout>
+    <Home ></Home>
   )
 }

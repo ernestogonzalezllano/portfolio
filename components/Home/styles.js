@@ -423,6 +423,7 @@ export const TitlePortfolioContainer = styled.div`
     h2{
         color: #fff;
         position: relative;
+        text-transform: uppercase;
         ::before{
             content: "";
             position: absolute;
@@ -760,8 +761,12 @@ export const FooterContainer = styled.footer`
 `
 
 export const CertsContainer = styled.section`
-    background-color: #2f2f31;
+    background-color: #343436;
     padding: 1rem;  
+
+    @media only screen and (min-width:${DESKTOP}){
+        padding: 3rem 1rem ;
+    }
 `
 
 export const CardCertsContainer = styled.div`

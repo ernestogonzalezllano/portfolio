@@ -155,7 +155,7 @@ export const Certs = [
     },
 ]
 
-export default function (){
+export default function Home(){
     const [openMenu, setOpenMenu]=useState(false)
     const [sectionSelected, setSectionSelected]=useState("Home")
     const homeRef = useRef(null);
@@ -163,12 +163,15 @@ export default function (){
     const portfolioRef = useRef(null);
     const skillsRef = useRef(null);
     const contactRef = useRef(null);
+    const certsRef = useRef(null);
+
     const references = {
         Home:homeRef,
         About:aboutRef,
         Portfolio:portfolioRef,
         Skills:skillsRef,
         Contact:contactRef,
+        Certs:certsRef,
     }
     function handleSectionSelected(e){
         e.preventDefault();
@@ -234,6 +237,7 @@ export default function (){
                 <li><LabelMenu isSelected={sectionSelected==="About"} name="About" onClick={handleSectionSelected}>About</LabelMenu></li>
                 <li><LabelMenu isSelected={sectionSelected==="Portfolio"} name="Portfolio" onClick={handleSectionSelected}>Portfolio</LabelMenu></li>
                 <li><LabelMenu isSelected={sectionSelected==="Skills"} name="Skills" onClick={handleSectionSelected}>Skills</LabelMenu></li>
+                <li><LabelMenu isSelected={sectionSelected==="Certs"} name="Certs" onClick={handleSectionSelected}>Certs</LabelMenu></li>
                 <li><LabelMenu isSelected={sectionSelected==="Contact"} name="Contact" onClick={handleSectionSelected}>Contact</LabelMenu></li>
             </Menu>
         </NavBar>
@@ -340,7 +344,7 @@ export default function (){
                 }
             </SkillCardsContainer>
         </SkillsContainer>
-        <CertsContainer>
+        <CertsContainer  ref={certsRef}>
             <TitlePortfolioContainer>
                 <label>Certifications And Courses</label>
                 <h2>MY CERTIFICATIONS</h2>
