@@ -602,6 +602,7 @@ export const CloseModalGallery = styled.button`
     font-size: 2rem;
     width: 100%;
     text-align: end; 
+    padding-right: 1rem;
 `
 
 export const ChangeImageButton = styled.button`
