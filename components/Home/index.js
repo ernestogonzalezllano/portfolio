@@ -48,13 +48,13 @@ export const Projects=[
     {
         name:"Las Rosas",
         images:["larosas", "larosas1", "larosas2", "larosas3","larosas4", "larosas5", "larosas6", "larosas7"],
-        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago"],
+        techs:["React", "Sass", "Redux", "Node", "Sequelize", "Express", "PassPort", "MercadoPago", "JWT"],
         href:"https://lasrosas.herokuapp.com/"
     }, 
     {
         name:"Henry App",
         images:["henryap1", "henryap2", "henryap3", "henryap4"],
-        techs:["React", "React Native", "Expo", "Apollo", "GraphQl", "React Paper", "React Navigation"],
+        techs:["React", "React Native", "Expo", "Apollo", "GraphQl", "React Paper", "React Navigation", "JWT"],
         href:"https://expo.dev/@toti10/henryapp",
         isMobile: true
     }, 
@@ -64,6 +64,24 @@ export const Projects=[
         techs:["React", "React Native", "Expo", "React Paper", "React Navigation", "Lottie"],
         href:"https://expo.dev/@toti10/ChipDitt",
         isMobile: true
+    }, 
+    {
+        name:"PetGram",
+        images:["pet", "pet1", "pet2"],
+        techs:["React","Advanced Hooks", "Apollo", "GraphQl", "Styled Components", "Mobile"],
+        href:"https://petgram-ernesto.vercel.app/login"
+    }, 
+    {
+        name:"e-Wallet",
+        images:["wallet", "wallet1", "wallet2", "wallet3"],
+        techs:["React","Material-Ui", "NodeJs", "Sequelize", "JWT", "Passport", "SOAP"],
+        href:"https://ep-wallet.herokuapp.com/"
+    }, 
+    {
+        name:"Electric Motors",
+        images:["motor", "motor1"],
+        techs:["React","Material-Ui", "OCR"],
+        href:"https://ep-wallet.herokuapp.com/"
     }, 
 ]
 
@@ -156,7 +174,7 @@ export const Certs = [
     },
 ]
 
-export default function (){
+export default function Home(){
     const [openMenu, setOpenMenu]=useState(false)
     const [sectionSelected, setSectionSelected]=useState("Home")
     const homeRef = useRef(null);

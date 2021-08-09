@@ -781,6 +781,11 @@ export const CardCertsContainer = styled.div`
         a{
             img{
                 width: 100%;
+                transition: transform .5s;
+                :hover{
+                    transition: transform .5s;
+                    transform: scale(1.2);
+                }
             }
         }
     }
