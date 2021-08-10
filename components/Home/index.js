@@ -297,7 +297,7 @@ export default function Home(){
 
                 {
                     projects.map(({name,images,techs,href})=>
-                        <CardsPortfolio>
+                        <CardsPortfolio key={name+Math.random().toString(36).slice(-8)} filterPortfolio={filterPortfolio} >
                             <ImageCardContainer>    
                                 <img src={`./images/${images[0]}.png`} />
                             </ImageCardContainer>

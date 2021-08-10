@@ -549,6 +549,16 @@ export const InfoCardContainer = styled.div`
 
 export const CardsPortfolio = styled.div`
     position: relative;
+    animation: ${()=>"showed 1s;"};
+    @keyframes showed{
+        from{
+            filter: blur(5px);
+        }
+        to{
+            filter: blur(0);
+        }
+    }
+    
     :hover{
         ${InfoCardContainer} {
             transition: backdrop-filter .5s, filter .5s;
