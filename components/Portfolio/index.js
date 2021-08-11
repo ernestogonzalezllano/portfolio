@@ -43,6 +43,5 @@ export function PortfolioF({portfolioRef, filterPortfolio, handleFilterPortfolio
 
 
 export const Portfolio = React.memo(PortfolioF,(prevProps,nextProps)=>{
-    console.log(prevProps,nextProps,"ESTO")
     return prevProps.filterPortfolio === nextProps.filterPortfolio
 })

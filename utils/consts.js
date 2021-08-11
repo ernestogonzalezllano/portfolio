@@ -43,11 +43,23 @@ export const SKILLS={
 export const CERTS = [
     {
         href:"https://certificates.soyhenry.com/cert?id=73bc1901-7d51-4c9c-9846-d22aefeb5546",
-        img:"henry"
+        img:"henry",
+        text:"Full Stack Developer"
     },
     {
         href:"https://platzi.com/p/ernestogonzalezllano296/curso/1601-course/diploma/detalle/",
-        img:"react_icon"
+        img:"react_icon",
+        text:"Advanced React"
+    },
+    {
+        href:"https://platzi.com/p/ernestogonzalezllano296/curso/1651-react-ejs/diploma/detalle/",
+        img:"react_icon",
+        text:"Practical React"
+    },
+    {
+        href:"https://platzi.com/p/ernestogonzalezllano296/curso/2118-react-hooks/diploma/detalle/",
+        img:"react_icon",
+        text:"React Hooks"
     },
 ]
 
