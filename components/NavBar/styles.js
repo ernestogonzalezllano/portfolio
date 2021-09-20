@@ -69,7 +69,7 @@ export const Menu = styled.ul`
             max-height:0px;
         }
         to{
-            max-height:150px;
+            max-height:165px;
         }
     }
     @keyframes closeMenu{

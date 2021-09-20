@@ -10,6 +10,7 @@ import { NavBar } from "../NavBar";
 import { Home } from "../Home";
 import { LayoutContainer } from "./styles";
 import { PROJECTS } from "../../utils/consts";
+import { Resume } from "../Resume/Resume";
 
 export default function Layout(){
     const [openMenu, setOpenMenu]=useState(false)
@@ -20,6 +21,7 @@ export default function Layout(){
     const skillsRef = useRef(null);
     const contactRef = useRef(null);
     const certsRef = useRef(null);
+    const resumeRef = useRef(null);
 
     const references = {
         Home:homeRef,
@@ -28,6 +30,8 @@ export default function Layout(){
         Skills:skillsRef,
         Contact:contactRef,
         Certs:certsRef,
+        Resume:resumeRef,
+
     }
     function handleSectionSelected(e){
         e.preventDefault();
@@ -114,6 +118,9 @@ export default function Layout(){
                 handleGalleryPage={handleGalleryPage}
                 />
             }
+            <Resume 
+                resumeRef={resumeRef}
+            />
             <Skills 
                 skillsRef={skillsRef}
             />
