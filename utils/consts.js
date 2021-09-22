@@ -57,10 +57,16 @@ export const CERTS = [
         text:"Practical React"
     },
     {
+        href:"https://platzi.com/p/ernestogonzalezllano296/curso/1869-typescript/diploma/detalle/",
+        img:"typescript_icon",
+        text:"Typescript Fundamentals"
+    },
+    {
         href:"https://platzi.com/p/ernestogonzalezllano296/curso/2118-react-hooks/diploma/detalle/",
         img:"react_icon",
         text:"React Hooks"
     },
+    
 ]
 
 
