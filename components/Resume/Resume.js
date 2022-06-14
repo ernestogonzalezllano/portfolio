@@ -31,7 +31,7 @@ export function Resume({ resumeRef }) {
       ],
     },
     {
-      date: "08/2021 - 04/2022",
+      date: "08/2021 - Actuality",
       name: "Chiper",
       job: "React Native Engineer",
       content:
