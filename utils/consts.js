@@ -281,7 +281,7 @@ export const RESUME_DATA = [
     ],
   },
   {
-    date: "08/2021 - Actuality",
+    date: "08/2021 - 07/2022",
     name: "Chiper",
     job: "React Native Engineer",
     content:
