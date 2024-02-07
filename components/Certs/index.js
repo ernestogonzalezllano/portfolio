@@ -36,15 +36,7 @@ export function CertsF({ certsRef }) {
         <h2>MY CERTIFICATIONS</h2>
       </TitleSection>
       <CardCertsContainer>
-        <div
-          onMouseEnter={() => {
-            setHover(true);
-          }}
-          onMouseLeave={() => {
-            setHover(false);
-            handleSetPosition();
-          }}
-        >
+        <div>
           {CERTS.map(({ img, href, text }, i) => (
             <CardCerts
               key={i + Math.random().toString(36).slice(-8)}
