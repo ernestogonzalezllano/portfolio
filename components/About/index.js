@@ -5,7 +5,7 @@ export function About({ aboutRef }) {
     <AboutContainer ref={aboutRef}>
       <ImgAboutContainer>
         <div>
-          <img src="desktop_new.webp"></img>
+          <img src="./images/desktop_new.webp"></img>
         </div>
       </ImgAboutContainer>
       <div>
