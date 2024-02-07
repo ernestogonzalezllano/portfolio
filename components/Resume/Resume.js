@@ -15,25 +15,28 @@ export function Resume({ resumeRef }) {
         <h2>MY RESUME</h2>
       </TitleSection>
       <CardsContainer>
-        {RESUME_DATA.map((exp, index) => {
+        {RESUME_DATA.map(({ name, content, date, job, skills }, index) => {
           return (
-            <CardResume index={index}>
+            <CardResume
+              key={name + Math.random().toString(36).slice(-8)}
+              index={index}
+            >
               <div>
-                <label>{exp.date}</label>
+                <label>{date}</label>
               </div>
               <div>
                 <div>
                   <i className={"fa fa-briefcase"}></i>
                   <div>
-                    <h3>{exp.job}</h3>
-                    <label>{exp.name}</label>
+                    <h3>{job}</h3>
+                    <label>{name}</label>
                   </div>
                 </div>
                 <div>
-                  <p>{exp.content}</p>
+                  <p>{content}</p>
                   <div>
-                    {exp.skills?.map((e) => (
-                      <SkillsLabel>{e}</SkillsLabel>
+                    {skills?.map((e) => (
+                      <SkillsLabel key={e}>{e}</SkillsLabel>
                     ))}
                   </div>
                 </div>
