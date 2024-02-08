@@ -69,9 +69,7 @@ export function PortfolioF({
                   <label key={tech}>{tech}</label>
                 ))}
               </div>
-              <a target="_blank" href={href}>
-                {name}
-              </a>
+              <a>{name}</a>
               <button onClick={() => handleGalleryImages(images)}>
                 Gallery
               </button>

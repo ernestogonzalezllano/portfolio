@@ -28,7 +28,7 @@ export const SKILLS = {
   ],
   Databases: ["MySql", "PostgreSQL", "MongoDb", "SQLite"],
   Mobile: ["React Native", "Expo"],
-  "Cloud services": ["Heroku", "Firebase"],
+  "Cloud services": ["Heroku", "Firebase", "AWS"],
   "Agile Methods": ["Scrum", "Kanban"],
 };
 
@@ -225,7 +225,8 @@ export const RESUME_DATA = [
     content: "Develop, maintenance and support of RRHH webpage.",
     skills: [
       "React",
-      "Google Cloud Functions",
+      "React Native",
+      "AWS Cloud Functions",
       "Redux",
       "Tailwind",
       "Firebase",
@@ -245,6 +246,7 @@ export const RESUME_DATA = [
       "Creation, maintenance and support of information page and sale of industrial equipment.Creation, maintenance and support of adminPage for the management of clients, products, banners and information of the main web page.",
     skills: [
       "React",
+      "React Native",
       "Redux",
       "Styled Components",
       "Firebase",
@@ -264,7 +266,7 @@ export const RESUME_DATA = [
     name: "Treinta",
     job: "Frontend Developer",
     content:
-      "Develop, maintenance and support of Extra Income section on webpage and mobile app.",
+      "Develop, maintenance and support of Extra Income section on webpage and mobile app. I improved SPA performance from 15% to 65% according to Lighthouse Report. I led the migration to nextJS and improved performance to 100% according to Lighthouse Report",
     skills: [
       "React",
       "React Native",
